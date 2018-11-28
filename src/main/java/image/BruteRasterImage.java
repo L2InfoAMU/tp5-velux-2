@@ -21,10 +21,7 @@ public class BruteRasterImage implements Image {
         height = Matrices.getColumnCount(colors);
         width = Matrices.getRowCount(colors);
         createRepresentation();
-
-        for(int i=0;i<width;i++){
-            for(int j = 0; j<height;j++)pixels[i][j]=colors[i][j];
-        }
+        pixels=colors;
     }
 
 
@@ -32,4 +29,18 @@ public class BruteRasterImage implements Image {
         pixels= new Color[this.width][this.height];
     }
 
+    public void setPixelColor(Color color, int x, int y){
+        pixels[x][y]=color;
+    }
+
+    public Color getPixelColor(int x, int y){
+        return pixels[x][y];
+    }
+
+    private void setPixelsColor(Color[][] pixels){
+        height = Matrices.getColumnCount(pixels);
+        width = Matrices.getRowCount(pixels);
+        createRepresentation();
+        this.pixels = pixels;
+    }
 }
