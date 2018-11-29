@@ -6,7 +6,7 @@ import util.Matrices;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PaletteRasterImage extends RasterImage implements Image{
+public class PaletteRasterImage extends RasterImage{
 
     private List<Color> palette;
     private int[][] indexesOfColors;
