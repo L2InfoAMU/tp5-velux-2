@@ -6,11 +6,10 @@ import util.Matrices;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PaletteRasterImage implements Image {
-    int width;
-    int height;
-    List<Color> palette;
-    int[][] indexesOfColors;
+public class PaletteRasterImage extends RasterImage implements Image{
+
+    private List<Color> palette;
+    private int[][] indexesOfColors;
 
     public PaletteRasterImage(Color color, int width, int height) {
         this.width = width;
@@ -53,15 +52,4 @@ public class PaletteRasterImage implements Image {
         }
     }
 
-    public int getWidth(){return width;}
-
-    public int getHeight(){return height;}
-
-    protected void setWidth(int width){
-        this.width=width;
-    }
-
-    protected void setHeight(int height){
-        this.height=height;
-    }
 }
