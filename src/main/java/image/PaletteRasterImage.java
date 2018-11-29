@@ -52,4 +52,16 @@ public class PaletteRasterImage implements Image {
             for (int j = 0; j < height; j++) indexesOfColors[i][j] = palette.indexOf(color);
         }
     }
+
+    public int getWidth(){return width;}
+
+    public int getHeight(){return height;}
+
+    protected void setWidth(int width){
+        this.width=width;
+    }
+
+    protected void setHeight(int height){
+        this.height=height;
+    }
 }
