@@ -12,8 +12,8 @@ public class PaletteRasterImage extends RasterImage{
     private int[][] indexesOfColors;
 
     public PaletteRasterImage(Color color, int width, int height) {
-        this.width = width;
-        this.height = height;
+        setWidth(width);
+        setHeight(height);
         createRepresentation();
         setPixelsColor(color);
     }
@@ -37,8 +37,8 @@ public class PaletteRasterImage extends RasterImage{
     }
 
     private void setPixelsColor(Color[][] pixels) {
-        height = Matrices.getColumnCount(pixels);
-        width = Matrices.getRowCount(pixels);
+        setHeight(Matrices.getColumnCount(pixels));
+        setWidth(Matrices.getRowCount(pixels));
         createRepresentation();
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++)
