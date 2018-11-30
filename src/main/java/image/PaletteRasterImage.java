@@ -45,6 +45,7 @@ public class PaletteRasterImage extends RasterImage{
                 setPixelColor(pixels[i][j],i,j);
         }
     }
+
     private void setPixelsColor(Color color){
         palette.add(color);
         for (int i = 0; i < width; i++) {
