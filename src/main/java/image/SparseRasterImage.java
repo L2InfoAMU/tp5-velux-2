@@ -12,15 +12,26 @@ public class SparseRasterImage extends RasterImage {
     public SparseRasterImage(Color color, int width, int height){
         this.width = width;
         this.height = height;
-        createRepresentation();
-        for (int i=0;i<width;i++){
-            for (int j=0;j<height;j++){
-                if(color != Color.WHITE) setPixelColor(color,i,j);
-            }
-        }
+        setPixelsColor(color);
     }
 
     public SparseRasterImage(Color[][] pixels){
+        setPixelsColor(pixels);
+    }
+
+    public void createRepresentation() {
+        pixelsMap = new HashMap<>();
+    }
+
+    public void setPixelColor(Color color, int x, int y){
+        pixelsMap.put(new Point(x,y),color);
+    }
+
+    public Color getPixelColor(int x, int y){
+        return pixelsMap.get(new Point(x,y));
+    }
+
+    private void setPixelsColor(Color[][] pixels){
         height = Matrices.getColumnCount(pixels);
         width = Matrices.getRowCount(pixels);
         createRepresentation();
@@ -31,11 +42,12 @@ public class SparseRasterImage extends RasterImage {
         }
     }
 
-    public void createRepresentation() {
-        pixelsMap = new HashMap<>();
-    }
-
-    public void setPixelColor(Color color, int x, int y){
-        pixelsMap.put(new Point(x,y),color);
+    private void setPixelsColor(Color color){
+        createRepresentation();
+        for (int i=0;i<width;i++){
+            for (int j=0;j<height;j++){
+                if(color != Color.WHITE) setPixelColor(color,i,j);
+            }
+        }
     }
 }
