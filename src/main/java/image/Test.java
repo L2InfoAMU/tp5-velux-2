@@ -9,7 +9,7 @@ public class Test implements ImageFactory {
     @Override
     public Image makeImage() {
         List<Shape> list = new ArrayList<>();
-        list.add(new TriangleRectangle(250,250,250,500,Color.INDIANRED));
+        list.add(new TriangleRectangle(10,10,250,400,Color.RED));
 
         return new VectorImage(list, 860, 340);
     }
