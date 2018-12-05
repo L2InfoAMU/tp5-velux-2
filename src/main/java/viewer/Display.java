@@ -25,7 +25,7 @@ public class Display implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
 
-        imageFactory = new LogoLISFactory();
+        imageFactory = new Test();
         this.image = imageFactory.makeImage();
 
         render();
