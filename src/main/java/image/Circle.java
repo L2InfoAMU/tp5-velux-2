@@ -18,6 +18,7 @@ public class Circle implements Shape {
 
     @Override
     public boolean contains(Point point) {
+
         if (point.x<x-rayon || point.x>x+rayon && point.y<y-rayon || point.y>y+rayon) return false;
         return true;
     }
