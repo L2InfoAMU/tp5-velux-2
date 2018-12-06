@@ -18,9 +18,10 @@ public class Circle implements Shape {
 
     @Override
     public boolean contains(Point point) {
-        if (point.x<x-rayon || point.x>x+rayon && point.y<y-rayon || point.y>y+rayon) return false;
-        return true;
+        if (Math.sqrt(Math.pow(point.x-x,2)+Math.pow(point.y-y,2)) < rayon) return true;
+        return false;
     }
+
     public Color getColor() {
         return color;
     }

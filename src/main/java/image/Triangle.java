@@ -17,9 +17,15 @@ public class Triangle implements Shape {
     }
 
     public boolean contains(Point point) {
-        if(point.x<Math.abs(a.x-b.x) && point.y<Math.abs(a.y-b.y)
-                && point.x<Math.abs(c.x-b.x) && point.y<Math.abs(c.y-b.y)
-                && point.x<Math.abs(a.x-c.x) && point.y<Math.abs(a.y-c.y)) return true;
+        if((a.x-point.x)*(b.y-point.y)-(a.y-point.y)*(b.x-point.x) >0
+                && (b.x-point.x)*(c.y-point.y)-(b.y-point.y)*(c.x-point.x)>0
+                && (c.x-point.x)*(a.y-point.y)-(c.y-point.y)*(a.x-point.x)>0
+                ||(a.x-point.x)*(b.y-point.y)-(a.y-point.y)*(b.x-point.x)<0
+                && (b.x-point.x)*(c.y-point.y)-(b.y-point.y)*(c.x-point.x)<0
+                && (c.x-point.x)*(a.y-point.y)-(c.y-point.y)*(a.x-point.x)<0
+                ||(a.x-point.x)*(b.y-point.y)-(a.y-point.y)*(b.x-point.x)==0
+                && (b.x-point.x)*(c.y-point.y)-(b.y-point.y)*(c.x-point.x)==0
+                && (c.x-point.x)*(a.y-point.y)-(c.y-point.y)*(a.x-point.x)==0) return true;
         return false;
     }
 
