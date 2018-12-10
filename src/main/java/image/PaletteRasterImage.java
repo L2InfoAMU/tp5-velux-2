@@ -19,6 +19,7 @@ public class PaletteRasterImage extends RasterImage{
     }
 
     public PaletteRasterImage(Color[][] pixels) {
+        EnsureNoException(pixels);
         setPixelsColor(pixels);
     }
 

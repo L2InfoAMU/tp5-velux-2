@@ -1,5 +1,7 @@
 package image;
 
+import util.Matrices;
+
 public abstract class RasterImage implements Image {
     int width;
     int height;
@@ -14,5 +16,11 @@ public abstract class RasterImage implements Image {
 
     protected void setHeight(int height){
         this.height=height;
+    }
+
+    public  void EnsureNoException(Object[][] matrix){
+        Matrices.requiresNonNull(matrix);
+        Matrices.requiresNonZeroDimensions(matrix);
+        Matrices.requiresRectangularMatrix(matrix);
     }
 }

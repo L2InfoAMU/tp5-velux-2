@@ -16,6 +16,7 @@ public class SparseRasterImage extends RasterImage {
     }
 
     public SparseRasterImage(Color[][] pixels){
+        EnsureNoException(pixels);
         setPixelsColor(pixels);
     }
 

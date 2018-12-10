@@ -15,6 +15,7 @@ public class BruteRasterImage extends RasterImage{
     }
 
     public BruteRasterImage(Color[][] colors){
+        EnsureNoException(colors);
         setPixelsColor(colors);
     }
 
