@@ -35,7 +35,7 @@ public class TriangleRectangle extends AbstractShape {
         }
         else if(rotation == TriangleRotation.NORTH_LEFT)
             this.side2 = 0-this.side2;
-        else if(rotation == TriangleRotation.NORTH_LEFT) {
+        else if(rotation == TriangleRotation.NORTH_RIGHT) {
             this.side2 = 0 - this.side2;
             this.side1 = 0-this.side1;
         }
