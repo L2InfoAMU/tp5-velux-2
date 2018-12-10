@@ -18,10 +18,15 @@ public class LogoLISFactory implements ImageFactory{
         Color[] colors = {Color.WHITE, Color.WHITE, Color.WHITE, greenblue, dark, dark, dark};
 
         List<Shape> list = new ArrayList<>();
-
+/*
         for (int i = 0; i<colors.length; i++)
-            list.add(new Rectangle(xCoordinates[i], yCoordinates[i], widths[i], heights[i], colors[i]));
-
+            list.add(new Rectangle(xCoordinates[i], yCoordinates[i], widths[i], heights[i], colors[i]));*/
+        list.add(new Circle(427,50,50,greenblue));
+        list.add(new TriangleRectangle(60,0,140,280,dark));
+        list.add(new TriangleRectangle(60,280,280,140,dark));
+        list.add(new Rectangle(400,140,60,200,dark));
+        list.add(new Polygon(false,dark,new Point(660,0),new Point(850,0),new Point(660,150),new Point(780,40),new Point(850,40)));
+        list.add(new Polygon(false,dark,new Point(660,350),new Point(850,350),new Point(660,300),new Point(780,300),new Point(850,200)));
         return new VectorImage(list, 860, 340);
     }
 }

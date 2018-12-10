@@ -2,12 +2,12 @@ package image;
 
 import javafx.scene.paint.Color;
 
-public class TriangleRectangle implements Shape {
+public class TriangleRectangle extends AbstractShape {
+
     private int x;
     private int y;
     private int side1;
     private int side2;
-    Color color;
 
     public TriangleRectangle(int x, int y, int side1, int side2, Color color) {
         this.x = x;
@@ -18,32 +18,12 @@ public class TriangleRectangle implements Shape {
     }
 
     public boolean contains(Point point) {
-        double a;
-        double b;
-        double z;
-        a = side1;
-        b = side2;
-        if (point.x > x && point.y >= y && point.x <= x + side1 && point.y <= y + side2) {
-            if (a > b) {
-                z=a/b;
-                for (int i = x; i < side2; i++) {
-                    a = a - z;
-                    if (point.x <= a && point.y == i) return true;
-                }
-            }
-            else {
-                z=b/a;
-                for (int i = x; i < side1; i++) {
-                    b = b - z;
-                    if (point.x == i && point.y <= b) return true;
-                }
-            }
-        }
+
+        Point a = new Point(x,y);
+        Point b = new Point(x+side1,y);
+        Point c = new Point(x,y+side2);
+
+        if(new Triangle(a,b,c,color).contains(point)) return true;
         return false;
-    }
-
-
-    public Color getColor() {
-        return color;
     }
 }

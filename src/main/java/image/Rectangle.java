@@ -2,12 +2,12 @@ package image;
 
 import javafx.scene.paint.Color;
 
-public class Rectangle implements Shape {
+public class Rectangle extends AbstractShape {
+
     private int x;
     private int y;
     private int width;
     private int height;
-    Color color;
 
     public Rectangle(int x, int y, int width, int height, Color color){
         this.x = x;
@@ -22,10 +22,5 @@ public class Rectangle implements Shape {
         if(point.x >= x && point.y >= y && point.x <= x+width && point.y <= y+height)
             return true;
         return false;
-    }
-
-    @Override
-    public Color getColor() {
-        return color;
     }
 }

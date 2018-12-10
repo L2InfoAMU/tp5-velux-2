@@ -3,18 +3,18 @@ package image;
 import javafx.scene.paint.Color;
 
 
-public class ConvexPolygon implements Shape{
+public class Polygon extends AbstractShape{
 
     Point[] points;
-    Color color;
 
-    public ConvexPolygon(Color color, Point...points){
+    public Polygon(Boolean is_Convex, Color color, Point...points){
         this.points = points;
         this.color = color;
         if(points.length<=2){
             throw new NotSupportedException("Missing few Points");
         }
-        sortPoints();
+        if(!is_Convex)
+            sortPoints();
     }
 
     public boolean contains(Point point){
@@ -24,12 +24,9 @@ public class ConvexPolygon implements Shape{
     return false;
     }
 
-    public Color getColor() {
-        return color;
-    }
-
     private void sortPoints(){
         Boolean sort = false;
+
         while(!sort) {
             sort = true;
             for (int i = 1; i < points.length - 1; i++) {
